@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Tienda CAFECITO</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <script defer src="./js/script.js"></script>
+
+    <!-- TOASTR --> 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+    
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+    <header>
+
+        <h1 class="tiendaCafecito">Tienda CAFECITO</h1>
+
+
+<!-- CARRITO COMPRA -->
+
+        <div class="contenedorIcono"> 
+
+            <div class="contGeneralIcono">
+
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="iconoCarrito">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                </svg>
+    
+                <div class="cuentaCompra">
+                    <span id="contadorProductos">0</span>
+                </div>
+
+            </div>
+
+            <div class="contenedorCarritoCompra hiddenCart">
+                
+                <div class="rowProduct">
+
+                    <div class="carritoCompra">
+
+                        <div class="infoCarritoCompra">
+
+                            <span class="cantidadProductoCarrito"></span>
+                            <p class="tituloProductoCarrito">Agregar Productos</p>
+                            <span class="precioProductoCarrito"></span>
+
+                        </div>
+
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="iconoCierre">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+    
+                    </div>
+
+                </div>
+
+                <div class="precioTotal">
+                    <h3>Total:</h3>
+                    <span class="totalPagar">$0</span>
+                    <button id="btnFinalizarCompra" class="botonFinalizarCompra">Finalizar compra</button>
+                </div>
+
+            </div>
+
+        </div>
+
+<!-- FIN CARRITO COMPRA -->
+
+    </header>
+
+<!-- FIN NAVBAR -->
+
+<!-- MAIN -->
+
+    <main>
+
+        <div class="titulosCafecito">
+            <h1 class="tituloUno">Tu café favorito</h1>
+            <h2 class="tituloDos">Ahora en tu casa</h2>
+        </div>
+
+<!-- FORMULARIO COMPRA / MODAL -->
+
+        <div class="modalPago">
+            <form id="formularioPago" class="formularioCompra" id="form">
+                
+                <input class="formulario itemFormulario" placeholder="Nombre y apellido" id="nombre" type="text">
+                <select name="formularioSeleccion" id="seleccionPago">
+                    <option value="0">Seleccionar método de pago</option>
+                    <option value="1">Tajeta de crédito</option>
+                    <option value="2">Tarjeta de débito</option>
+                </select>
+                <input class="formulario itemFormulario" placeholder="Numero de tarjeta" id="tarjeta" type="number">
+                <input class="formulario itemFormulario" placeholder="Código de seguridad" id="codigo" type="number">
+                <input class="formulario itemFormulario" placeholder="Fecha de vencimiento" id="vencimiento" type="date">
+                <button id="btnConfirmar" class="botonConfirmar itemFormulario" type="button">Confirmar Compra</button>
+
+            </form>
+        </div>
+
+<!-- FIN FORMULARIO COMPRA / MODAL-->
+
+<!-- MENSAJE / MODAL-->
+
+        <div id="mensaje"></div>
+
+<!-- FIN MENSAJE / MODAL-->
+
+<!-- PRODUCTOS -->
+
+        <div class="contenedorProductos hiddenAll">
+
+            <div class="producto">
+
+                <figure>
+                    <img src="img/granosdecafe.jpg" alt="Café Tostado Brasil">
+                </figure>
+
+                <div class="infoProducto">
+                    <h2>Café Brasil</h2>
+                    <p class="precio">$3800</p>
+                    <button class="botonAgregar">Añadir al carrito</button>
+                </div>
+
+            </div>
+
+            <div class="producto">
+
+                <figure>
+                    <img src="img/granosdecafe.jpg" alt="Café Tostado Colombia">
+                </figure>
+
+                <div class="infoProducto">
+                    <h2>Café Colombia</h2>
+                    <p class="precio">$4700</p>
+                    <button class="botonAgregar">Añadir al carrito</button>
+                </div>
+
+            </div>
+
+            <div class="producto">
+
+                <figure>
+                    <img src="img/granosdecafe.jpg" alt="Café Tostado Nicaragua">
+                </figure>
+
+                <div class="infoProducto">
+                    <h2>Café Nicaragua</h2>
+                    <p class="precio">$5100</p>
+                    <button class="botonAgregar">Añadir al carrito</button>
+                </div>
+
+            </div>
+
+            <div class="producto">
+
+                <figure>
+                    <img src="img/granosdecafe.jpg" alt="Café Tostado Honduras">
+                </figure>
+
+                <div class="infoProducto">
+                    <h2>Café Honduras</h2>
+                    <p class="precio">$3700</p>
+                    <button class="botonAgregar">Añadir al carrito</button>
+                </div>
+
+            </div>
+
+            <div class="producto">
+
+                <figure>
+                    <img src="img/granosdecafe.jpg" alt="Café Tostado Etiopía">
+                </figure>
+
+                <div class="infoProducto">
+                    <h2>Café Etiopía</h2>
+                    <p class="precio">$3950</p>
+                    <button class="botonAgregar">Añadir al carrito</button>
+                </div>
+
+            </div>
+
+            <div class="producto">
+
+                <figure>
+                    <img src="img/granosdecafe.jpg" alt="Café Tostado Guatemala">
+                </figure>
+
+                <div class="infoProducto">
+                    <h2>Café Guatemala</h2>
+                    <p class="precio">$4200</p>
+                    <button class="botonAgregar">Añadir al carrito</button>
+                </div>
+
+            </div>
+
+        </div>
+
+<!-- FIN PRODUCTOS -->
+
+    </main>
+
+    
+
+<!-- FIN MAIN -->
+
+<!-- FOOTER -->
+
+    <footer>
+
+        <div class="redescontenedor">
+            <a href="https://www.instagram.com"target="_blank">
+                <img class="redes" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAABExJREFUaEPtWb2PG0UU/71JKgq4tcWVWW/2aGjOKaliagqcFiHh9Eg5lIaKuxMFHdyJPwBTINHh/AX4ujQRSU32vIsiqGL7UAoQd++h2Q+z9u3HrPcczpJXcmHNzJv3e9/vDWHNP1pz/rEB8H9rcKOBtdPAaDJqKVzcFaGuAm0JpAVA/5b5fAL5DJkSyYBx48SxHL8KIWMTGk1GW4p5H4S9KhdU3is4YqUOHcuZmpw1AvDb5HlXhL6pIWkTXtJ7tEbu37J2BmUHSwHEzP+0QCiAYAAFn8FPyy4pWldQbTC1QdIBYKf3Esm9MhCFAEKzEf4lJfkzJu461jvDOkznnQ1eegcg7KfWp0zKKTKnQgDBS+8IhAcxwTMm1TK1zWUBjiajdiy0iITg2G66uX6XCyCMNsKjhBEmfv+qJf/izxfN83/+6hHRByLy5I2LNw+3t7dfLWoi1kJmdMoFEEy8PQi04+p649mthtteVqp55/zx6acE+TZZF8LXLct9qP8HY09HobfCNcJntuUeZdHJBzA+HQDyoYka8xjU5qDXHMvJdPRg7H0F4PMZAMjjVmPnvQhA6n7QI7txu1sJgD9+PiTQ3VAABtFA7wudHvyAhDqCMKrMPgINhWTIUMeJH/lj7yMCfpgBEPmi1dz5MgSQcmiBnLQaO3P0kjMFGvC0/YcZ1sT+R5NfO0rUdwa5wmfi+4k/BePTjwnYBcnvfP73j6233/0jBJAyYQC+3XCdShoIxp6YOnBG+Ct3F8Gh3XQP8s0vFMjPybrdcDOFXaQBIwCx5GcXRT5D37O66AM3Y9s/byu+0QPJJ2mGizS7SLcmAHUnyxGrJrqYKV0eRNEF8JlC2pfqnisFkIf+crwuzxWXNJZjSq8FQDpSabOxm7d75cavI8xpPzGnvAjzWgBUcfQ0MBPmTPaEIT5PYmnmskxosWZhUpZpnRT7zuS/KBcWbHOlwgZAmQaidG+eK66dCYUxMFVuXGsnzks4axNG8wDEzqizbdIKTpn4Xl7fEDumbk+3YpMKmFR75YmsSsqPSgn0lVL9c+CZ/nsT2GXmHghzeaIK3ZqlRHGGva7FnI7LoWlUKKf7i5OFjDwTMHGvrD1dKKfP7IabmN0cydxEtnRDw7wnJJ2kGZo1K5ATEhqyUkcmCe8KGprVt5RFdVO6pVyuI5vviJ7aDfeOSaF2FXvi6KY7wshslmnqF8cq8ahP2/jKv4yxSmY/UljMhaXC/GBLT8k0oUrT46poLw22CiYSpQBiVWqGkw5qCsKBbbnHVRkz2R9MvH0I0n1y6TRw2eGunwx3FVSt4S6DO2C0QNBjk7l3BhOzLQWgJRdPqLX9J5owEWidPWexpjOncWnCRgD0gfiBQ0+Pk2FvHQYLztIjJtoz9TVjAMmN0RMTd0UkfmLCbh0keu4aPjFFSW6QN4bMu6MygDrMruLsBsAqpFqF5kYDVaS1ir1rr4F/AciP4k/arcRvAAAAAElFTkSuQmCC"/></a>
+            <a href="https://www.facebook.com"target="_blank">
+                <img class="redes" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAAXNSR0IArs4c6QAAAZ1JREFUaEPtV9FZwjAQvosL0PJOqdV3NhAmcATdQNwAJ0A3YAQ2EDfAZ8XAAFIXMOcXfCvpF5oE2vJdHttL8v///XdJEFo+sOX4gQnUnUHOwNlnQOZyIJS6A4QhAAwKhH8QcPmL+JhG6dJFjKNZSOayI5SaAsK9DZhCNUqj64UtzvT/KAR24Em9GhQ3Ymwcgc336hkQHg5VtFEEZC77gpQ8FLyOaxSBTb4aA8G0vQS2X3MAujURIKA3Qpq4FuxJini9/Vwg4I1pM4UiTaN0XSU7ttjgXaiMAAK89+KseA7Y8Fn/n4yAtk8/vtKHWdDBBIpyllmIM1BiPGcL6UvaBdFevycgXagdw367i5sJRy++HLkWhgeBj6Egoe873iOJM2cczhNlHoaAb3utnYBvcddOAAhekm42dvVhEwg8Jd1sUgMB2RdK7b+2/l9giQHQBghmxe9KiLnrc1Kv5ZyBMsX4IKvoJc4A34UqWqYYzhZiC7GFPBVgC3kKyF2ILcQW8lTg7CwUWA/rcsG7kHXHwAFMILCglZfjDFSWLPCEPyo7DEB/nGuqAAAAAElFTkSuQmCC"/></a>
+        </div>
+
+    </footer>
+
+<!-- FIN FOOTER -->
+
+</body>
+
+</html>
